@@ -1,0 +1,24 @@
+<front-navbar (productsByCategory)="productsByCategory($event)"></front-navbar>
+<div class="container mt-5">
+   
+    <front-form *ngIf="showFormAdmin" (changeList)="callBakcend()"></front-form>
+    <div class="d-flex flex-row flex-wrap">
+        <front-card *ngFor="let product of allproducts" [infoProduct]="product" (changeList)="callBakcend()"></front-card>
+    </div>
+    <nav aria-label="...">
+        <ul class="pagination">
+          
+          <li class="page-item {{prevClass}}" (click)="prevPage()" style="cursor: pointer;">
+            <a class="page-link">Anterior</a>
+          </li>
+          
+          <li class="page-item {{page.class}}"  *ngFor="let page of pages"  (click)="pagination(page)">
+            <a class="page-link" style="cursor: pointer;">{{page.i}}</a>
+          </li>
+          
+          <li class="page-item  {{nextClass}}"  (click)="postPage()" style="cursor: pointer;"> 
+            <a class="page-link" >Siguiente</a>
+          </li>
+        </ul>
+      </nav>
+</div>

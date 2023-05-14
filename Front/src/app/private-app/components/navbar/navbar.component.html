@@ -1,0 +1,32 @@
+<nav class="navbar navbar-expand-lg bg-light">
+    <div class="container-fluid">
+        <div class="navbar-brand">JTS</div>
+
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent"
+            aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+            <div class="me-2">
+                Bienvenido {{userName}}
+            </div>
+            <img src={{userImg}} style="max-height: 50px;min-height: 50px;max-width: 50px;max-width: 50px;"
+                class="me-2">
+            <div class="btn btn-outline-success" (click)="close()">Cerrrar sesión</div>
+            <div class="btn btn-primary ms-3 pe-4" (click)="goToCart()" style="position: relative;">Ir al carrito
+                <div id="botonCart">{{numberOfProductsOnCart}}</div>
+            </div>
+            <ul class="navbar-nav me-auto mb-2 mb-lg-0 ms-5">
+                <li class="nav-item">
+                    <div>Home</div>
+                </li>
+            </ul>
+            <form class="d-flex" role="search">
+                <input class="form-control me-2" #miInput placeholder="Filtrá por categorias" aria-label="Search" />
+                <div class="btn btn-outline-success" (click)="searchByCategory()" >
+                    Buscar
+                </div>
+            </form>
+        </div>
+    </div>
+</nav>

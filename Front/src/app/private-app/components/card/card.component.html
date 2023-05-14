@@ -1,0 +1,52 @@
+<div class="card m-3" style="width: 15rem;">
+    <img src={{infoProduct.urlImgProduct}} class="card-img-top" style="max-height: 150px!important;min-height: 150px!important">
+    <div class="card-body" style="max-height: 150px!important;min-height: 150px!important">
+        <h5 class="card-title">{{infoProduct.product}}</h5>
+        <p class="card-text">{{infoProduct.description}}</p>
+    </div>
+    <ul class="list-group list-group-flush">
+        <li class="list-group-item">Precio: U$S {{infoProduct.price}}</li>
+        <li class="list-group-item">Stock: {{infoProduct.stock}}</li>
+    </ul>
+    <div *ngIf="administrador">
+        <form action="" [formGroup]="formProduct" class="container d-flex flex-column">
+            <label for=""> Producto:
+                <input formControlName="product" placeholder="Nombre del producto" type="text">
+            </label>
+            <label for="">Descripcion:
+                <input formControlName="description" placeholder="Descripción del producto" type="text">
+            </label>
+            <label for="">Categoria:
+                <input formControlName="category" placeholder="Categoria" type="text">
+            </label>
+            <label for="">
+                Código del produto:
+                <input formControlName="code" placeholder="Código del producto" type="number" readonly>
+            </label>
+            <label for="">
+                URL del producto:
+                <input formControlName="urlImgProduct" placeholder="URL de la foto" type="text">
+            </label>
+            <label for="">
+                Precio:
+                <input formControlName="price" placeholder="Precio" type="number">
+            </label>
+            <label for="">
+                Stock:
+                <input formControlName="stock" placeholder="Stock" type="number">
+            </label>
+        </form>
+    </div>
+    <div class="card-body d-flex flex-column justify-content-center align-items-center" *ngIf="!administrador">
+        <button class="btn btn-success ms-3" (click)="addToCart()" [disabled]="esCero()">Agregar al carrito</button>
+        <div class="d-flex flex-row flex-wrap mt-3">
+            <div (click)="substractCant()" class="btn btn-secondary">-</div>
+            <div class="ms-2 me-2" style="font-size: 1.5rem;">{{this.cant}}</div>
+            <div (click)="addCant()" class="btn btn-secondary">+</div>
+        </div>
+    </div>
+    <div class="card-body" *ngIf="administrador">
+        <button class="btn btn-danger" (click)="deleteProduct()">Eliminar</button>
+        <button class="btn btn-warning ms-3" (click)="updateProduct()">Actualizar</button>
+    </div>
+</div>

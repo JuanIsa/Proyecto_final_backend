@@ -1,0 +1,51 @@
+<div class="container mt-5 d-flex justify-content-center flex-column">
+    Todos los campos son obligatorios
+    <form enctype="multipart/form-data" [formGroup]="registerForm" class="d-flex flex-column" #form>
+
+        <div class="form-floating mb-3">
+            <input formControlName="email" type="email" class="form-control" placeholder="*" autocomplete="off">
+            <label>E-mail</label>
+        </div>
+        
+        <div class="form-floating mb-3">
+            <input formControlName="password" type="password" class="form-control" placeholder="*"  autocomplete="off">
+            <label>Contraseña</label>
+        </div>
+        
+        <div class="form-floating mb-3">
+            <input formControlName="repeatpassword" type="password" class="form-control" placeholder="*" autocomplete="off">
+            <label>Reingrese contraseña</label>
+        </div>
+
+        <div class="form-floating mb-3">
+            <input formControlName="completeName" type="text" class="form-control" placeholder="*" autocomplete="off">
+            <label>Ingrese su nombre completo</label>
+        </div>
+     
+        <div class="form-floating mb-3">
+            <input formControlName="address" type="text" class="form-control" placeholder="*" autocomplete="off">
+            <label>Ingrese su dirección</label>
+        </div>
+      
+        <div class="form-floating mb-3">
+            <input formControlName="age" type="number" min="18" max="110" class="form-control" placeholder="*" autocomplete="off">
+            <label>Ingrese su edad</label>
+        </div>
+
+        <div class="form-floating mb-3">
+            <input formControlName="telphoneNumber" type="tel" class="form-control" placeholder="*" autocomplete="off">
+            <label>Ingrese su número de teléfono</label>
+        </div>
+
+        <div class="form mb-3">
+            <input type="file" (change)="onFileSelected($event)" accept="image/jpeg"  #fileInput>
+            <label class="ms-4">Seleccione su avatar o foto de perfil</label>
+        </div>
+        
+        <input type="submit" (click)="register()" class="btn btn-primary mt-3" value="Registrarse">
+    </form>
+    <div>
+        ¿Ya tenés cuenta?, logueate:
+        <button class="btn btn-danger my-5" (click)="goLogin()">Ir al Login</button>
+    </div>
+</div>

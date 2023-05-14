@@ -1,0 +1,36 @@
+<front-navbar></front-navbar>
+<section class="container mt-5">
+    <h3>Carrito</h3>
+    <div class="btn btn-primary" (click)="goToHome()">Ir al home</div>
+ 
+    <table class="table">
+        <thead>
+            <tr>
+                <th scope="col">Producto</th>
+                <th scope="col">Precio</th>
+                <th scope="col">Cantidad de artículos</th>
+                <th scope="col">Subtotal</th>
+                <th scope="col">Eliminar producto</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr *ngFor="let product of cartUser">
+                <td>{{product.product}}</td>
+                <td>U$S {{product.price}}</td>
+                <td>{{product.cant}}</td>
+                <td>U$S {{product.cant*product.price}}</td>
+                <td style="color: red; cursor: pointer;" (click)="deleteProduct(product)">X</td>
+            </tr>
+        </tbody>
+        <tbody>
+            <tr>
+                <td></td>
+                <td></td>
+                <td>TOTAL:</td>
+                <td>U$S {{total}}</td>
+                <td ></td>
+            </tr>
+        </tbody>
+    </table>
+    <div class="btn btn-primary" (click)="finishbuy()" *ngIf="endBuyButon">Finalizar compra</div>
+</section>
